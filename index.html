@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quick Revision Pro</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:#0f172a;
+color:white;
+}
+
+header{
+background:#111827;
+padding:20px;
+text-align:center;
+border-bottom:2px solid #2563eb;
+}
+
+header h1{
+margin:0;
+font-size:40px;
+color:#60a5fa;
+}
+
+header p{
+margin-top:8px;
+font-size:16px;
+color:#cbd5e1;
+}
+
+.container{
+padding:20px;
+}
+
+.card{
+background:#1e293b;
+padding:20px;
+border-radius:15px;
+margin-bottom:20px;
+box-shadow:0 0 10px rgba(0,0,0,.3);
+}
+
+button{
+padding:12px 20px;
+border:none;
+border-radius:10px;
+background:#2563eb;
+color:white;
+font-weight:bold;
+cursor:pointer;
+}
+
+input,select,textarea{
+width:100%;
+padding:12px;
+margin-top:10px;
+border-radius:10px;
+border:none;
+background:#334155;
+color:white;
+}
+
+.sidebar{
+width:240px;
+height:100vh;
+background:#111827;
+position:fixed;
+left:0;
+top:0;
+padding:20px;
+overflow:auto;
+}
+
+.sidebar h2{
+color:#60a5fa;
+}
+
+.sidebar a{
+display:block;
+color:white;
+text-decoration:none;
+margin:12px 0;
+padding:10px;
+border-radius:10px;
+background:#1e293b;
+}
+
+.main{
+margin-left:260px;
+padding:20px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.stat{
+background:#1e293b;
+padding:20px;
+border-radius:15px;
+text-align:center;
+}
+
+.stat h2{
+margin:0;
+font-size:32px;
+color:#60a5fa;
+}
+
+footer{
+text-align:center;
+padding:20px;
+color:#94a3b8;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="sidebar">
+
+<h2>Quick Revision</h2>
+
+<a href="#">Dashboard</a>
+<a href="#">Exams</a>
+<a href="#">Topics</a>
+<a href="#">Questions</a>
+<a href="#">OCR Upload</a>
+<a href="#">Students</a>
+<a href="#">Results</a>
+<a href="#">Settings</a>
+
+</div>
+
+<div class="main">
+
+<header>
+<h1>QUICK REVISION</h1>
+<p>India's Smart Practice Platform</p>
+</header>
+
+<div class="container">
+
+<div class="grid">
+
+<div class="stat">
+<h2>12540</h2>
+<p>Total Questions</p>
+</div>
+
+<div class="stat">
+<h2>2453</h2>
+<p>Total Tests</p>
+</div>
+
+<div class="stat">
+<h2>8921</h2>
+<p>Total Students</p>
+</div>
+
+<div class="stat">
+<h2>33</h2>
+<p>Total Topics</p>
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>Add Question</h2>
+
+<select>
+<option>Select Exam</option>
+<option>Railway</option>
+<option>SSC</option>
+<option>Banking</option>
+<option>BPSC</option>
+<option>Bihar Police</option>
+</select>
+
+<select>
+<option>Select Topic</option>
+<option>Percentage</option>
+<option>Profit And Loss</option>
+</select>
+
+<textarea placeholder="Enter Question"></textarea>
+
+<input type="text" placeholder="Option A">
+<input type="text" placeholder="Option B">
+<input type="text" placeholder="Option C">
+<input type="text" placeholder="Option D">
+
+<select>
+<option>Correct Answer</option>
+<option>A</option>
+<option>B</option>
+<option>C</option>
+<option>D</option>
+</select>
+
+<textarea placeholder="Solution"></textarea>
+
+<input type="file">
+
+<br><br>
+
+<button>Save Question</button>
+
+</div>
+
+<div class="card">
+
+<h2>App Settings</h2>
+
+<input type="text" placeholder="Founder Name">
+
+<input type="text" placeholder="Mobile Number">
+
+<input type="number" placeholder="Splash Time">
+
+<input type="text" placeholder="Footer Text">
+
+<button>Save Settings</button>
+
+</div>
+
+</div>
+
+<footer>
+Developed By Vicky Kumar | India's Smart Practice Platform
+</footer>
+
+</div>
+
+</body>
+</html>
