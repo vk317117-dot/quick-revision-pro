@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Login | Quick Revision</title>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="firebase.js"></script>
+
+<style>
+body{margin:0;font-family:Arial,sans-serif;background:#0f172a;color:white;display:flex;justify-content:center;align-items:center;height:100vh}
+.box{width:340px;background:#1e293b;padding:25px;border-radius:18px;box-shadow:0 0 20px #000}
+h1{text-align:center;color:#60a5fa}
+input,button{width:100%;padding:13px;margin-top:12px;border:0;border-radius:10px;font-size:16px}
+input{background:#334155;color:white}
+button{background:#2563eb;color:white;font-weight:bold;cursor:pointer}
+.green{background:#16a34a}
+#msg{text-align:center;margin-top:12px;color:#93c5fd;font-weight:bold}
+.code{display:flex;gap:8px}
+.code span{background:#334155;padding:13px;border-radius:10px;margin-top:12px}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+<h1>Quick Revision</h1>
+<p style="text-align:center;">Student Login</p>
+
+<div class="code">
+<span>+91</span>
+<input id="phone" type="text" placeholder="Mobile Number">
+</div>
+
+<button onclick="sendOTP()">Send OTP</button>
+
+<input id="otp" type="text" placeholder="Enter OTP">
+
+<button class="green" onclick="verifyOTP()">Verify & Login</button>
+
+<div id="recaptcha-container"></div>
+
+<p id="msg"></p>
+</div>
+
+<script>
+function showMsg(t){
+document.getElementById("msg").innerText=t;
+}
+
+function getPhone(){
+let p=document.getElementById("phone").value.replace(/\D/g,"");
+if(p.length!==10){
+showMsg("10 digit mobile number डालें");
+return null;
+}
+return "+91"+p;
+}
+
+function setupCaptcha(){
+if(!window.recaptchaVerifier){
+window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier("recaptcha-container",{
+size:"invisible"
+});
+}
+}
+
+function sendOTP(){
+const phone=getPhone();
+if(!phone)return;
+
+setupCaptcha();
+
+auth.signInWithPhoneNumber(phone,window.recaptchaVerifier)
+.then(result=>{
+window.confirmationResult=result;
+showMsg("OTP Sent ✅");
+})
+.catch(error=>{
+showMsg(error.message);
+});
+}
+
+function verifyOTP(){
+const code=document.getElementById("otp").value.trim();
+
+if(!window.confirmationResult){
+showMsg("पहले OTP भेजें");
+return;
+}
+
+window.confirmationResult.confirm(code)
+.then(result=>{
+showMsg("Login Successful ✅");
+
+db.collection("students").doc(result.user.uid).set({
+phone:result.user.phoneNumber,
+lastLogin:new Date()
+},{merge:true});
+
+setTimeout(()=>{
+window.location.href="index.html";
+},1000);
+})
+.catch(error=>{
+showMsg(error.message);
+});
+}
+</script>
+
+</body>
+</html>
