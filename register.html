@@ -125,7 +125,8 @@ showMsg("Passwords do not match");
 return;
 }
 
-const fakeEmail = mobile + "@quickrevision.com";
+const cleanMobile = mobile.replace(/\D/g,'');
+const fakeEmail = cleanMobile + "@quickrevision.com";
 
 auth.createUserWithEmailAndPassword(fakeEmail,password)
 
