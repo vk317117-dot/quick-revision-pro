@@ -1,249 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Quick Revision Pro</title>
-
+<title>Quick Revision Student</title>
 <style>
-
-body{
-margin:0;
-font-family:Arial,sans-serif;
-background:#0f172a;
-color:white;
-}
-
-header{
-background:#111827;
-padding:20px;
-text-align:center;
-border-bottom:2px solid #2563eb;
-}
-
-header h1{
-margin:0;
-font-size:40px;
-color:#60a5fa;
-}
-
-header p{
-margin-top:8px;
-font-size:16px;
-color:#cbd5e1;
-}
-
-.container{
-padding:20px;
-}
-
-.card{
-background:#1e293b;
-padding:20px;
-border-radius:15px;
-margin-bottom:20px;
-box-shadow:0 0 10px rgba(0,0,0,.3);
-}
-
-button{
-padding:12px 20px;
-border:none;
-border-radius:10px;
-background:#2563eb;
-color:white;
-font-weight:bold;
-cursor:pointer;
-}
-
-input,select,textarea{
-width:100%;
-padding:12px;
-margin-top:10px;
-border-radius:10px;
-border:none;
-background:#334155;
-color:white;
-}
-
-.sidebar{
-width:240px;
-height:100vh;
-background:#111827;
-position:fixed;
-left:0;
-top:0;
-padding:20px;
-overflow:auto;
-}
-
-.sidebar h2{
-color:#60a5fa;
-}
-
-.sidebar a{
-display:block;
-color:white;
-text-decoration:none;
-margin:12px 0;
-padding:10px;
-border-radius:10px;
-background:#1e293b;
-}
-
-.main{
-margin-left:260px;
-padding:20px;
-}
-
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-}
-
-.stat{
-background:#1e293b;
-padding:20px;
-border-radius:15px;
-text-align:center;
-}
-
-.stat h2{
-margin:0;
-font-size:32px;
-color:#60a5fa;
-}
-
-footer{
-text-align:center;
-padding:20px;
-color:#94a3b8;
-}
-
+body{margin:0;font-family:Arial,sans-serif;background:#f4f7fb;color:#111}
+header{background:#0b57d0;color:white;padding:20px;text-align:center}
+.card{background:white;margin:18px;padding:20px;border-radius:16px;box-shadow:0 4px 12px #ddd}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px}
+.btn{padding:25px;border:2px solid #0b57d0;border-radius:16px;background:white;color:#0b57d0;font-size:22px;font-weight:bold;cursor:pointer}
+footer{text-align:center;padding:20px;font-weight:bold;color:#555}
 </style>
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
-<script src="firebase.js"></script>
 </head>
-
 <body>
-
-<div class="sidebar">
-
-<h2>Quick Revision</h2>
-
-<a href="#">Dashboard</a>
-<a href="#">Exams</a>
-<a href="#">Topics</a>
-<a href="#">Questions</a>
-<a href="#">OCR Upload</a>
-<a href="#">Students</a>
-<a href="#">Results</a>
-<a href="#">Settings</a>
-
-</div>
-
-<div class="main">
 
 <header>
 <h1>QUICK REVISION</h1>
 <p>India's Smart Practice Platform</p>
 </header>
 
-<div class="container">
+<div class="card">
+<h2 id="welcome">Welcome Student</h2>
+<p>Select your exam category</p>
 
 <div class="grid">
-
-<div class="stat">
-<h2>12540</h2>
-<p>Total Questions</p>
+<button class="btn">Railway</button>
+<button class="btn">SSC</button>
+<button class="btn">Banking</button>
+<button class="btn">BPSC</button>
+<button class="btn">Bihar Police</button>
+<button class="btn">Bihar Teacher</button>
+<button class="btn">Bihar Daroga</button>
+<button class="btn">Other Exams</button>
 </div>
-
-<div class="stat">
-<h2>2453</h2>
-<p>Total Tests</p>
-</div>
-
-<div class="stat">
-<h2>8921</h2>
-<p>Total Students</p>
-</div>
-
-<div class="stat">
-<h2>33</h2>
-<p>Total Topics</p>
-</div>
-
 </div>
 
 <div class="card">
-
-<h2>Add Question</h2>
-
-<select>
-<option>Select Exam</option>
-<option>Railway</option>
-<option>SSC</option>
-<option>Banking</option>
-<option>BPSC</option>
-<option>Bihar Police</option>
-</select>
-
-<select>
-<option>Select Topic</option>
-<option>Percentage</option>
-<option>Profit And Loss</option>
-</select>
-
-<textarea placeholder="Enter Question"></textarea>
-
-<input type="text" placeholder="Option A">
-<input type="text" placeholder="Option B">
-<input type="text" placeholder="Option C">
-<input type="text" placeholder="Option D">
-
-<select>
-<option>Correct Answer</option>
-<option>A</option>
-<option>B</option>
-<option>C</option>
-<option>D</option>
-</select>
-
-<textarea placeholder="Solution"></textarea>
-
-<input type="file">
-
-<br><br>
-
-<button>Save Question</button>
-
+<h2>Available Test Series</h2>
+<div class="grid">
+<button class="btn">Mock Test</button>
+<button class="btn">PYQ Test</button>
+<button class="btn">Topic Test</button>
+<button class="btn">Daily Quiz</button>
 </div>
-
-<div class="card">
-
-<h2>App Settings</h2>
-
-<input type="text" placeholder="Founder Name">
-
-<input type="text" placeholder="Mobile Number">
-
-<input type="number" placeholder="Splash Time">
-
-<input type="text" placeholder="Footer Text">
-
-<button>Save Settings</button>
-
-</div>
-
 </div>
 
 <footer>
 Developed By Vicky Kumar | India's Smart Practice Platform
 </footer>
 
-</div>
+<script>
+const name=localStorage.getItem("studentName");
+if(name){
+document.getElementById("welcome").innerText="Welcome, "+name;
+}
+</script>
 
 </body>
 </html>
