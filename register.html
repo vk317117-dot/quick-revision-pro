@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Register | Quick Revision</title>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="firebase.js"></script>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:#0f172a;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+color:white;
+}
+
+.box{
+width:350px;
+background:#1e293b;
+padding:25px;
+border-radius:18px;
+box-shadow:0 0 20px rgba(0,0,0,.4);
+}
+
+h1{
+text-align:center;
+color:#60a5fa;
+}
+
+input{
+width:100%;
+padding:13px;
+margin-top:12px;
+border:none;
+border-radius:10px;
+background:#334155;
+color:white;
+font-size:15px;
+}
+
+button{
+width:100%;
+padding:13px;
+margin-top:15px;
+border:none;
+border-radius:10px;
+background:#2563eb;
+color:white;
+font-size:16px;
+font-weight:bold;
+cursor:pointer;
+}
+
+a{
+color:#60a5fa;
+text-decoration:none;
+}
+
+#msg{
+margin-top:15px;
+text-align:center;
+font-weight:bold;
+color:#93c5fd;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="box">
+
+<h1>Quick Revision</h1>
+
+<p style="text-align:center;">Student Register</p>
+
+<input type="text" id="name" placeholder="Full Name">
+
+<input type="text" id="mobile" placeholder="Mobile Number">
+
+<input type="password" id="password" placeholder="Password">
+
+<input type="password" id="confirm" placeholder="Confirm Password">
+
+<button onclick="register()">Create Account</button>
+
+<p style="text-align:center;margin-top:15px;">
+Already have account?
+<a href="login.html">Login</a>
+</p>
+
+<p id="msg"></p>
+
+</div>
+
+<script>
+
+function showMsg(t){
+document.getElementById("msg").innerText=t;
+}
+
+function register(){
+
+const name=document.getElementById("name").value.trim();
+const mobile=document.getElementById("mobile").value.trim();
+const password=document.getElementById("password").value;
+const confirm=document.getElementById("confirm").value;
+
+if(name=="" || mobile=="" || password=="" || confirm==""){
+showMsg("All fields required");
+return;
+}
+
+if(password !== confirm){
+showMsg("Passwords do not match");
+return;
+}
+
+const fakeEmail = mobile + "@quickrevision.com";
+
+auth.createUserWithEmailAndPassword(fakeEmail,password)
+
+.then((userCredential)=>{
+
+const user=userCredential.user;
+
+db.collection("students").doc(user.uid).set({
+name:name,
+mobile:mobile,
+createdAt:new Date()
+});
+
+showMsg("Account Created Successfully ✅");
+
+setTimeout(()=>{
+window.location.href="login.html";
+},1500);
+
+})
+
+.catch((error)=>{
+showMsg(error.message);
+});
+
+}
+
+</script>
+
+</body>
+</html>
