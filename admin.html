@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quick Revision Admin Panel</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:#0f172a;
+color:white;
+}
+
+.sidebar{
+width:240px;
+height:100vh;
+background:#111827;
+position:fixed;
+left:0;
+top:0;
+padding:20px;
+overflow:auto;
+}
+
+.sidebar h2{
+color:#60a5fa;
+}
+
+.sidebar a{
+display:block;
+color:white;
+text-decoration:none;
+padding:12px;
+margin:10px 0;
+background:#1e293b;
+border-radius:10px;
+}
+
+.main{
+margin-left:260px;
+padding:20px;
+}
+
+.card{
+background:#1e293b;
+padding:20px;
+border-radius:15px;
+margin-bottom:20px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+}
+
+.stat{
+background:#111827;
+padding:20px;
+border-radius:15px;
+text-align:center;
+}
+
+.stat h2{
+margin:0;
+font-size:32px;
+color:#60a5fa;
+}
+
+input,select,textarea{
+width:100%;
+padding:12px;
+margin-top:12px;
+border:none;
+border-radius:10px;
+background:#334155;
+color:white;
+}
+
+button{
+padding:12px 20px;
+border:none;
+border-radius:10px;
+background:#2563eb;
+color:white;
+font-weight:bold;
+cursor:pointer;
+margin-top:15px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="sidebar">
+
+<h2>Quick Revision</h2>
+
+<a href="#">Dashboard</a>
+<a href="#">Exams</a>
+<a href="#">Topics</a>
+<a href="#">Questions</a>
+<a href="#">OCR Upload</a>
+<a href="#">Students</a>
+<a href="#">Results</a>
+<a href="#">Settings</a>
+
+</div>
+
+<div class="main">
+
+<h1>Admin Dashboard</h1>
+
+<div class="grid">
+
+<div class="stat">
+<h2>12540</h2>
+<p>Total Questions</p>
+</div>
+
+<div class="stat">
+<h2>2453</h2>
+<p>Total Tests</p>
+</div>
+
+<div class="stat">
+<h2>8921</h2>
+<p>Total Students</p>
+</div>
+
+<div class="stat">
+<h2>33</h2>
+<p>Total Topics</p>
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>Add Question</h2>
+
+<select>
+<option>Select Exam</option>
+<option>Railway</option>
+<option>SSC</option>
+<option>Banking</option>
+<option>BPSC</option>
+<option>Bihar Police</option>
+</select>
+
+<select>
+<option>Select Topic</option>
+<option>Percentage</option>
+<option>Profit And Loss</option>
+</select>
+
+<textarea placeholder="Enter Question"></textarea>
+
+<input type="text" placeholder="Option A">
+<input type="text" placeholder="Option B">
+<input type="text" placeholder="Option C">
+<input type="text" placeholder="Option D">
+
+<select>
+<option>Correct Answer</option>
+<option>A</option>
+<option>B</option>
+<option>C</option>
+<option>D</option>
+</select>
+
+<textarea placeholder="Solution"></textarea>
+
+<input type="file">
+
+<button>Save Question</button>
+
+</div>
+
+<div class="card">
+
+<h2>App Settings</h2>
+
+<input type="text" placeholder="Founder Name">
+
+<input type="text" placeholder="Mobile Number">
+
+<input type="number" placeholder="Splash Time">
+
+<input type="text" placeholder="Footer Text">
+
+<button>Save Settings</button>
+
+</div>
+
+</div>
+
+</body>
+</html>
