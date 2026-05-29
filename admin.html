@@ -141,24 +141,29 @@ margin-top:15px;
 </div>
 
 <div class="card">
+<h2>Add Exam</h2>
+<input type="text" id="newExam" placeholder="Enter Exam Name जैसे Railway, SSC, Bihar Daroga">
+<button onclick="addExam()">Add Exam</button>
+<div id="examList"></div>
+</div>
+<div class="card">
+<h2>Add Topic</h2>
+<select id="topicExam"></select>
+
+<input type="text" id="newTopic" placeholder="Enter Topic Name">
+<button onclick="addTopic()">Add Topic</button>
+
+<div id="topicList"></div>
+
+</div>
+
+<div class="card">
 
 <h2>Add Question</h2>
 
-<select>
-<option>Select Exam</option>
-<option>Railway</option>
-<option>SSC</option>
-<option>Banking</option>
-<option>BPSC</option>
-<option>Bihar Police</option>
-</select>
+<select id="examSelect"></select>
 
-<select>
-<option>Select Topic</option>
-<option>Percentage</option>
-<option>Profit And Loss</option>
-</select>
-
+<select id="topicSelect"></select>
 <textarea placeholder="Enter Question"></textarea>
 
 <input type="text" placeholder="Option A">
